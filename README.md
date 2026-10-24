@@ -18,8 +18,9 @@ stops writing them where it can. A player can show any of them again in the game
 }
 ```
 
-- `source` is required: the method that logged the line (`Type::Method`, as the BepInEx bridge tags it), or for a line
-  the engine logs itself, `unity:` and that line with its numbers masked.
+- `source` is required: the method that logged the line (`Type::Method`, as the BepInEx bridge tags it); for a line
+  the engine logs itself, `unity:` and that line with its numbers masked; or for a line a mod writes under its own
+  name, as SMAPI logs them, `mod:` and that name (`mod:SMAPI`, `mod:game`), with `text` set.
 - `text` is optional: only the method's lines whose first line, masked, reads this. Empty is every line it logs.
 - `object` is optional: only lines about that object. Empty is every object.
 - `label` is required: a line it hides, shown in Mortar's list of hidden messages.

@@ -1,0 +1,20 @@
+{
+  "game": "stardew",
+  "entries": [
+    {
+      "source": "mod:SMAPI",
+      "text": "Writing to the terminal is disabled because the --no-terminal argument was received. This usually means launching the terminal failed.",
+      "label": "Writing to the terminal is disabled because the --no-terminal argument was received. This usually means launching the terminal failed."
+    },
+    {
+      "source": "mod:game",
+      "text": "Error initializing the Galaxy API.",
+      "label": "Error initializing the Galaxy API. (GOG Galaxy's start-up fails on Steam launches; harmless.)"
+    },
+    {
+      "source": "mod:game",
+      "text": "Galaxy SignInSteam failed with an exception:",
+      "label": "Galaxy SignInSteam failed with an exception: (GOG Galaxy's start-up fails on Steam launches; harmless.)"
+    }
+  ]
+}

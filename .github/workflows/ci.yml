@@ -1,0 +1,20 @@
+name: ci
+
+on:
+  pull_request:
+
+permissions: {}
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Schema-check lists
+        run: |
+          for f in lists/*.json; do
+            jq -e '.game and (.entries | type == "array") and all(.entries[]; (.source | type == "string" and length > 0) and (.label | type == "string" and length > 0))' "$f" >/dev/null
+          done

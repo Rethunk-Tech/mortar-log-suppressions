@@ -29,4 +29,4 @@ The entries are easiest to make in Mortar: right-click lines in the Console to h
 `hiddenLogSources` from Mortar's `settings.json`.
 
 A push to `main` that changes a list publishes it: CI stamps a serial, minifies and signs it, and uploads
-`<game>.json` and `<game>.json.sig` to the `lists` release.
+`<game>.json` and `<game>.json.sig` (and `<game>.json.v2.sig`, signed over the list name too) to the `lists` release.

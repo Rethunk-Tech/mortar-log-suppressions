@@ -44,8 +44,8 @@ jobs:
           for f in $changed; do
             [ -f "$f" ] || continue
             name=$(basename "$f")
-            jq -e '.game and (.entries | type == "array") and all(.entries[]; (.source | type == "string" and length > 0) and (.label | type == "string" and length > 0))' "$f" >/dev/null
             jq -c --argjson serial "$(date +%s)" '. + {serial: $serial}' "$f" >"$out/$name"
+            sh scripts/check-lists.sh "$out/$name"
             openssl pkeyutl -sign -rawin -inkey "$key" -in "$out/$name" -out "$out/$name.sig"
             # .sig stays the raw-payload signature released Mortars verify; .v2.sig binds the payload to this list.
             { printf 'mortar-suppressions-v1\n'; cat "$out/$name"; } >"$out/$name.v2"

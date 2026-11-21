@@ -17,3 +17,9 @@ if sh scripts/check-lists.sh "$tmp/stardew.json"; then
   echo "expected game/stem mismatch to fail" >&2
   exit 1
 fi
+
+printf '%s\n' '{"game":"stardew","serial":1,"entries":[{"source":"T::M","label":"x","text":5}]}' >"$tmp/stardew.json"
+if sh scripts/check-lists.sh "$tmp/stardew.json"; then
+  echo "expected a non-string text to fail" >&2
+  exit 1
+fi

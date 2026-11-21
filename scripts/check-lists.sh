@@ -8,7 +8,8 @@ check() {
 		.game == $game
 		and (.serial | type == "number" and . != 0)
 		and (.entries | type == "array")
-		and all(.entries[]; (.source | type == "string" and length > 0) and (.label | type == "string" and length > 0))
+		and all(.entries[]; (.source | type == "string" and length > 0) and (.label | type == "string" and length > 0)
+			and (.text // "" | type == "string") and (.object // "" | type == "string"))
 	' "$file" > /dev/null
 }
 
